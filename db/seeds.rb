@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Place.create(city: "Paris", country: "France", visited: true)
-Place.create(city: "Sydney", country: "Australia", visited: false)
-Place.create(city: "Tokyo", country: "Japan", visited: false)
+Place.find_or_create_by(city: "Paris", country: "France").update_attributes(visited: true)
+Place.find_or_create_by(city: "Sydney", country: "Australia").update_attributes(visited: false)
+Place.find_or_create_by(city: "Tokyo", country: "Japan").update_attributes(visited: false)
 
 Event.find_or_create_by(name: "Eiffel Tower").update_attributes(visited: true, place_id: 1 )
 Event.find_or_create_by(name: "Sydney Opera House").update_attributes(visited: false, place_id: 2)
