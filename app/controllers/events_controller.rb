@@ -3,7 +3,11 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    if params[:place_id]
+      @events = Place.find_by(id: params[:place_id]).events
+    else
+      @events = Event.all
+    end
 
     render json: @events
   end
